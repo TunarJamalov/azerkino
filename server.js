@@ -46,11 +46,11 @@ app.post('/api/movies', async (req, res) => {
 });
 
 // React build dosyalarını sun (Render için)
-app.use(express.static(path.join(__dirname, 'frontend', 'dist')));
+app.use(express.static(path.join(__dirname, 'frontend')));
 
 // React tarafındaki tüm route'ları yakala
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'frontend', 'dist', 'index.html'));
+  res.sendFile(path.join(__dirname, 'frontend','index.html'));
 });
 
 // Server başlat
