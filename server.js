@@ -45,15 +45,15 @@ app.post('/api/movies', async (req, res) => {
   }
 });
 
-// React build dosyalarını sun (Render için)
-app.use(express.static(path.join(__dirname, 'frontend')));
 
-// React tarafındaki tüm route'ları yakala
+app.use(express.static(path.join(__dirname, 'frontend/dist')));
+
+// API olmayan tüm route'ları frontend uygulamasına yönlendir
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'frontend','index.html'));
+  res.sendFile(path.join(__dirname, 'frontend/dist/index.html'));
 });
 
-// Server başlat
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
